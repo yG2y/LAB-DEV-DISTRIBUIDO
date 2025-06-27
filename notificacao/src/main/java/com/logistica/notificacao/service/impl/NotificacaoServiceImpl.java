@@ -40,6 +40,7 @@ public class NotificacaoServiceImpl implements NotificacaoService {
 
         preferenciaRepository.findById(notificacao.getDestinatarioId())
                 .ifPresent(preferencia -> {
+
                     if (preferencia.getTipoPreferido() == TipoNotificacao.EMAIL ||
                             preferencia.getTipoPreferido() == TipoNotificacao.AMBOS) {
                         emailService.enviarEmail(
